@@ -21,7 +21,7 @@ If you wanted to work on the issue '_issue#1: create foo_', your branch should b
 ### Pushing to branch and pull requests
 
 ...
+There are several steps that needs to be followed, to insure a more efficient and smooth sailing of the project.
 To merge your finished work from your branch, a pull request must be issued and looked through by the team.
 In this section we prioritize keeping merge conflicts and breaking of code to a minimum.
-The way we will be tackling this issue, is by running smoke tests and unit tests.
-There are several steps that needs to be followed, to insure a more efficient and smooth sailing of the project.
+The way we will be tackling this issue, is by running smoke tests and unit tests between every merge.
