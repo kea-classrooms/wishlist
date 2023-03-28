@@ -25,3 +25,11 @@ There are several steps that needs to be followed, to insure a more efficient an
 To merge your finished work from your branch, a pull request must be issued and looked through by the team.
 In this section we prioritize keeping merge conflicts and breaking of code to a minimum.
 The way we will be tackling this issue, is by running smoke tests and unit tests between every merge.
+
+
+
+## DATABASE
+
+### ER model
+You can find our ER model under docs, if you want to contribute to the ER model, you can go to 
+https://dbdiagram.io/d/6421b2345758ac5f17247dc7
