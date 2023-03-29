@@ -1,7 +1,7 @@
 name: file.yml
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
