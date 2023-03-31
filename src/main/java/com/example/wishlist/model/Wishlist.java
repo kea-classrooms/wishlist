@@ -14,7 +14,7 @@ public class Wishlist {
     private int userID;
     private String listName;
 
-    //WISH
+    //COMPUTERPART
     private int partID;
     private int numberCount;
     private int listID;
