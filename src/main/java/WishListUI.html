@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:Price="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>New Wish</title>
-    <link th:href="@{https:localhost:8080}">
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: dodgerblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0069d9;
+        }
+    </style>
 </head>
 <body>
 
@@ -18,12 +35,16 @@
             <optgroup label="NVIDIA"></optgroup>
         </select>
         <br>
+        <input name="Price" type="number">
+        <br>
         <select>
             <option value="Motherboards">Motherboard</option>
             <optgroup label="ASUS"></optgroup>
             <optgroup label="MSI"></optgroup>
             <optgroup label="NVIDIA"></optgroup>
         </select>
+        <br>
+        <input name="Price" type="number">
         <br>
         <select>
             <option value="CPU">CPU</option>
@@ -32,12 +53,16 @@
             <optgroup label="Test CPU"></optgroup>
         </select>
         <br>
+        <input name="Price" type="number">
+        <br>
         <select>
             <option value="GPU">Video card</option>
             <optgroup label="ASUS"></optgroup>
             <optgroup label="MSI"></optgroup>
             <optgroup label="NVIDIA"></optgroup>
             </select>
+        <br>
+        <input name="Price" type="number">
         <br>
         <select>
             <option value="RAM">Memory</option>
@@ -46,13 +71,18 @@
             <optgroup label="Micron"></optgroup>
         </select>
         <br>
+        <input name="Price" type="number">
+        <br>
         <select>
             <option value="SSD">Solid State Drive</option>
             <optgroup label="Intel"></optgroup>
             <optgroup label="Samsung"></optgroup>
             <optgroup label="Kingston"></optgroup>
             <optgroup label="Micron"></optgroup>
+
         </select>
+        <br>
+        <input name="Price" type="number">
 
         <br>
         <select>
@@ -62,21 +92,26 @@
             <optgroup label="Sony"></optgroup>
         </select>
         <br>
+        <input name="Price" type="number">
+        <br>
         <select>
             <option value="Case">Computer Case</option>
             <optgroup label="Corsair"></optgroup>
             <optgroup label="MSI"></optgroup>
             <optgroup label="Asus"></optgroup>
         </select>
+        <br>
+        <input name="Price" type="number">
 
         <br>
-        <label2 for="Price">Pris:</label2>
+        <label2 for="Price">Price:</label2>
         <br>
             <input name="price" type="number">
             <br>
             <lable> Add wish</lable>
         <br>
-            <button type="submit">Add wish</button>
+
+        <a href="Wish_Success.html" class="button"> Add wish </a>
 
 
 
