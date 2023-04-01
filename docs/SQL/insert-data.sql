@@ -27,7 +27,7 @@ INSERT INTO WISH(partID, numberCount, listID) VALUE(3,4,3);
 INSERT INTO WISH(partID, numberCount, listID) VALUE(2,1,1);
 INSERT INTO WISH(partID, numberCount, listID) VALUE(5,2,5);
 INSERT INTO WISH(partID, numberCount, listID) VALUE(6,5,2);
-INSERT INTO WISH(partID, numberCount, listID) VALUE(2,2,1);
+INSERT INTO WISH(partID, numberCount, listID) VALUE(2,2,3);
 
 INSERT INTO SHARED_LIST(listID, sharedToUserID) VALUE (5, 4);
 INSERT INTO SHARED_LIST(listID, sharedToUserID) VALUE (5, 3);
