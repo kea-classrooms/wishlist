@@ -26,7 +26,8 @@
 
 <h1>Create a new wish</h1>
 <h1 style="background-color: lightblue">
-    <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wish}"><label1 for="Computer Part">Pick your parts:</label1>
+    <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wish}">
+        <label1 for="Computer Part">Pick your parts:</label1>
         <br>
         <select id="Computer Part" name="Computer part">
             <option value="Graphic Cards">Graphic Cards</option>
@@ -111,11 +112,7 @@
             <lable> Add wish</lable>
         <br>
 
-        <a href="Wish_Success.html" class="button"> Add wish </a>
-
-
-
-
+        <button type="success"> Add wish </button>
 </form>
 </h1>
 </body>
