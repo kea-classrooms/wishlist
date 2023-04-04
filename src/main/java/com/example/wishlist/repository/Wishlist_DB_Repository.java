@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("wishlist_DB")
+@Repository("Wishlist_DB_Repository")
 public class Wishlist_DB_Repository {
 
 }
