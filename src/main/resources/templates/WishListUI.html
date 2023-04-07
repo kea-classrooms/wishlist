@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:Price="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>New Wish</title>
@@ -26,93 +26,19 @@
 
 <h1>Create a new wish</h1>
 <h1 style="background-color: lightblue">
-    <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wish}">
-        <label1 for="Computer Part">Pick your parts:</label1>
+    <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wishList}">
+        <label1>Pick your parts:</label1>
         <br>
-        <select id="Computer Part" name="Computer part">
-            <option value="Graphic Cards">Graphic Cards</option>
+        <span th:each="pType : ${componentTypes}">
+        <select id="Computer Part" name="">
+            <option th:text="${pType}" />
             <optgroup label="ASUS"></optgroup>
             <optgroup label="MSI"></optgroup>
             <optgroup label="NVIDIA"></optgroup>
         </select>
         <br>
-        <input name="Price" type="number">
-        <br>
-        <select>
-            <option value="Motherboards">Motherboard</option>
-            <optgroup label="ASUS"></optgroup>
-            <optgroup label="MSI"></optgroup>
-            <optgroup label="NVIDIA"></optgroup>
-        </select>
-        <br>
-        <input name="Price" type="number">
-        <br>
-        <select>
-            <option value="CPU">CPU</option>
-            <optgroup label="Intel"></optgroup>
-            <optgroup label="AMD"></optgroup>
-            <optgroup label="Test CPU"></optgroup>
-        </select>
-        <br>
-        <input name="Price" type="number">
-        <br>
-        <select>
-            <option value="GPU">Video card</option>
-            <optgroup label="ASUS"></optgroup>
-            <optgroup label="MSI"></optgroup>
-            <optgroup label="NVIDIA"></optgroup>
-            </select>
-        <br>
-        <input name="Price" type="number">
-        <br>
-        <select>
-            <option value="RAM">Memory</option>
-            <optgroup label="Samsung"></optgroup>
-            <optgroup label="Hynix"></optgroup>
-            <optgroup label="Micron"></optgroup>
-        </select>
-        <br>
-        <input name="Price" type="number">
-        <br>
-        <select>
-            <option value="SSD">Solid State Drive</option>
-            <optgroup label="Intel"></optgroup>
-            <optgroup label="Samsung"></optgroup>
-            <optgroup label="Kingston"></optgroup>
-            <optgroup label="Micron"></optgroup>
-
-        </select>
-        <br>
-        <input name="Price" type="number">
-
-        <br>
-        <select>
-            <option value="HHD">Hard Disk</option>
-            <optgroup label="Toshiba"></optgroup>
-            <optgroup label="Lenovo"></optgroup>
-            <optgroup label="Sony"></optgroup>
-        </select>
-        <br>
-        <input name="Price" type="number">
-        <br>
-        <select>
-            <option value="Case">Computer Case</option>
-            <optgroup label="Corsair"></optgroup>
-            <optgroup label="MSI"></optgroup>
-            <optgroup label="Asus"></optgroup>
-        </select>
-        <br>
-        <input name="Price" type="number">
-
-        <br>
-        <label2 for="Price">Price:</label2>
-        <br>
-            <input name="price" type="number">
-            <br>
-            <lable> Add wish</lable>
-        <br>
-
-        <button type="success"> Add wish </button>
+        </span>
+        <button type="submit"> Add wish </button>
 </form>
 </h1>
 </body>
