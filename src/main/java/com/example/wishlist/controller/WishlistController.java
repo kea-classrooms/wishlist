@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +22,8 @@ public class WishlistController {
     IWishlist_Repository iWishlist_repository; //interface reference
     WishlistService wishlistService;
 
-    public WishlistController(ApplicationContext context, @Value("wishlist_DB") String impl) {
+    public WishlistController(ApplicationContext context, @Value("${wishlist_DB.repository.impl") String impl) {
+        this.iWishlist_repository = (IWishlist_Repository) context.getBean(impl);
 
     }
 
@@ -31,8 +33,13 @@ public class WishlistController {
 
     @GetMapping(path = "/")
     //returnerer wishlist
-    public ResponseEntity<List<Wishlist>> getWishlist() {
-        return new ResponseEntity<>(wishlist, HttpStatus.OK);
+    //sender data mellem html og database
+    public String getWishlist(Model model) {
+        List<Wishlist> wishlistList = iWishlist_repository.getWishListByName("Christmas list", 2);
+        model.addAttribute("Wishlist", wishlistList);
+        return "index"; //finder templates mappen og filen
     }
+
+    @GetMapping("/wishlist/count")
 
 }
