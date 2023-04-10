@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link th:href="@{/main.css}" rel="styleheet">
     <meta charset="UTF-8">
     <title>Wishlist</title>
 </head>
 <body>
-
+<h1>WISHLIST:</h1>
+<table>
+    <tr>
+       <th>Part name</th>
+        <th>Part id</th>
+        <th>Part type</th>
+    </tr>
+    <span th:each="wish : ${wishList}" th:object>
+        <tr>
+            <td th: text="${getPname()}" ></td>
+            <td th: text="${getPprice()}" ></td>
+            <td th: text="${getPtype()}" ></td>
+            <td><a th:href="@{http://localhost:8080/wishlist/ ></td>
+            <td><b th: text="${getPname()}" ></td>
+        </tr>
+    </span>
+</table>
 </body>
 </html>

@@ -40,6 +40,6 @@ public class WishlistController {
         return "index"; //finder templates mappen og filen
     }
 
-    @GetMapping("/wishlist/count")
+
 
 }
