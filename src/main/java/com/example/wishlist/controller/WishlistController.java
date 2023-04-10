@@ -1,5 +1,6 @@
 package com.example.wishlist.controller;
 
+import com.example.wishlist.model.ComputerPart;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.repository.Wishlist_DB_Repository;
@@ -27,13 +28,11 @@ public class WishlistController {
     @GetMapping("/add")
     public String addWishList(Model model){
         //TODO: wishlist skal addes til model, sammen med de typer af komponenter/andet data vi skal bruge
-        List<String> componentTypes = new ArrayList<>(
-                List.of("GPU", "Motherboard", "CPU", "Power Supply", "Headset", "Capture card", "Storage", "CPU cooler")
-        );
+        List<ComputerPart> computerParts = database.getParts();
         Wishlist list = new Wishlist(1, "test");
 
         model.addAttribute("wishList", list);
-        model.addAttribute("componentTypes", componentTypes);
+        model.addAttribute("computerParts", computerParts);
         return "WishListUI";
     }
 

@@ -29,12 +29,13 @@
     <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wishList}">
         <label1>Pick your parts:</label1>
         <br>
-        <span th:each="pType : ${componentTypes}">
-        <select id="Computer Part" name="">
-            <option th:text="${pType}" />
-            <optgroup label="ASUS"></optgroup>
-            <optgroup label="MSI"></optgroup>
-            <optgroup label="NVIDIA"></optgroup>
+        <span th:each="part : ${computerParts}">
+        <select >
+            <option th:text="${part.pType}" />
+            <span th:each="part2 : ${computerParts}" >
+                <optgroup th:if="${part.pType == part2.pType}" th:label="${part.pName.split(' ')[0]}">
+                </optgroup>
+            </span>
         </select>
         <br>
         </span>
