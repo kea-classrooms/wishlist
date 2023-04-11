@@ -1,5 +1,7 @@
 package com.example.wishlist.model;
 
+import java.util.List;
+
 public class Wishlist {
 
     //COMPUTERPART
@@ -14,7 +16,7 @@ public class Wishlist {
     private int userID;
     private String listName;
 
-    //COMPUTERPART
+    //WISH
     private int partID;
     private int numberCount;
     private int listID;
@@ -31,22 +33,43 @@ public class Wishlist {
         this.uName = uName;
         this.userID = userID;
         this.listName = listName;
-        this.partID = partID;
-        this.numberCount = numberCount;
+    }
+
+    public int getListID() {
+        return listID;
+    }
+
+    public void setListID(int listID) {
         this.listID = listID;
         this.sharedToUserID = sharedToUserID;
+    }
+    public int getUserID() {
+        return userID;
     }
 
     public String getpName() {
         return pName;
     }
 
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
     public int getpPrice() {
         return pPrice;
+    }
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
     public String getpType() {
         return pType;
+    }
+    public String getListName() {
+        return listName;
+    }
+    public void setListName(String listName) {
+        this.listName = listName;
     }
 
     @Override

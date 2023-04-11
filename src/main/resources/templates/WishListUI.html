@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Wish</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: dodgerblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Create a new wish</h1>
+<h1 style="background-color: lightblue">
+    <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wishList}">
+        <label1>Pick your parts:</label1>
+        <br>
+        <span th:each="pType : ${componentTypes}">
+        <select id="Computer Part" name="">
+            <option th:text="${pType}" />
+            <optgroup label="ASUS"></optgroup>
+            <optgroup label="MSI"></optgroup>
+            <optgroup label="NVIDIA"></optgroup>
+        </select>
+        <br>
+        </span>
+        <button type="submit"> Add wish </button>
+</form>
+</h1>
+</body>
+</html>
