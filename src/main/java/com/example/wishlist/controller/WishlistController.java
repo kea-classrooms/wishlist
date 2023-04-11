@@ -26,7 +26,7 @@ public class WishlistController {
     }
 
     @GetMapping("/add")
-    public String addWishList(Model model){
+    public String addWishList(Model model) {
         //TODO: wishlist skal addes til model, sammen med de typer af komponenter/andet data vi skal bruge
         List<ComputerPart> computerParts = database.getParts();
         Wishlist list = new Wishlist(1, "test");
@@ -37,9 +37,9 @@ public class WishlistController {
     }
 
     @PostMapping("/add")
-    public String wishListSuccess(@ModelAttribute("wishlist") Wishlist wishlist){
+    public String wishListSuccess(@ModelAttribute("wishlist") Wishlist wishlist) {
         System.out.println(wishlist);
-        //TODO: Skal kobles til database metode der poster ønskelisten
+
         return "Wish_Success";
     }
 }

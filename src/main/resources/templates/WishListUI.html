@@ -30,17 +30,17 @@
         <label1>Pick your parts:</label1>
         <br>
         <span th:each="part : ${computerParts}">
-        <select >
-            <option th:text="${part.pType}" />
-            <span th:each="part2 : ${computerParts}" >
-                <optgroup th:if="${part.pType == part2.pType}" th:label="${part.pName.split(' ')[0]}">
-                </optgroup>
-            </span>
-        </select>
-        <br>
+            <div th:if="${computerParts.indexOf(part) == 0 || computerParts.get(computerParts.indexOf(part) - 1).getpType() != part.pType}">
+                <select>
+                    <option th:text="${part.pType}">
+                    <option th:each="part2 : ${computerParts}" th:if="${part.getpType() == part2.getpType()}"
+                            th:text="${part2.pName}"/>
+                </select>
+                <br>
+            </div>
         </span>
-        <button type="submit"> Add wish </button>
-</form>
+        <button type="submit"> Add wish</button>
+    </form>
 </h1>
 </body>
 </html>
