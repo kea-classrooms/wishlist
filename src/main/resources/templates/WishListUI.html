@@ -3,44 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>New Wish</title>
-    <style>
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            background-color: dodgerblue;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background-color: #0069d9;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
 <h1>Create a new wish</h1>
-<h1 style="background-color: lightblue">
+<div class="body">
     <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wishList}">
-        <label1>Pick your parts:</label1>
-        <br>
-        <span th:each="part : ${computerParts}">
-            <div th:if="${computerParts.indexOf(part) == 0 || computerParts.get(computerParts.indexOf(part) - 1).getpType() != part.pType}">
-                <select>
-                    <option th:text="${part.pType}">
-                    <option th:each="part2 : ${computerParts}" th:if="${part.getpType() == part2.getpType()}"
-                            th:text="${part2.pName}"/>
-                </select>
-                <br>
-            </div>
-        </span>
+        <label>
+            Pick your parts:
+            <br>
+            <span th:each="part : ${computerParts}">
+            <!-- Filter out duplicate types -->
+                <span th:if="${computerParts.indexOf(part) == 0 || computerParts.get(computerParts.indexOf(part) - 1).getpType() != part.pType}">
+                    <span th:text="${'Select ' + part.pType}"/>
+                    <select>
+                        <!-- 'Placeholder' value -->
+                        <option disabled selected th:text="${part.pType}"/>
+                        <!--
+                        Go through list of components again, and make an option if they are of same type.
+                        Could probably be made better
+                        -->
+                        <option th:each="part2 : ${computerParts}" th:if="${part.getpType() == part2.getpType() && wishList.containsPart(part.partID)}"
+                            th:text="${part2.pName}" selected/>
+                        <option th:each="part2 : ${computerParts}" th:if="${part.getpType() == part2.getpType() && !wishList.containsPart(part.partID)}"
+                                th:text="${part2.pName}"/>
+                    </select>
+                    <br>
+                </span>
+            </span>
+        </label>
         <button type="submit"> Add wish</button>
     </form>
-</h1>
+</div>
 </body>
 </html>

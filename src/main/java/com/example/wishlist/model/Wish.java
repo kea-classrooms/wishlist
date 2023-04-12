@@ -1,22 +1,14 @@
 package com.example.wishlist.model;
 
 public class Wish {
-    private int wishID, partID, numberCount, listID;
+    private int partID, numberCount, listID;
 
-    public Wish(int wishID, int partID, int numberCount, int listID) {
-        this.wishID = wishID;
+    public Wish(int partID, int numberCount, int listID) {
         this.partID = partID;
         this.numberCount = numberCount;
         this.listID = listID;
     }
 
-    public int getWishID() {
-        return wishID;
-    }
-
-    public void setWishID(int wishID) {
-        this.wishID = wishID;
-    }
 
     public int getPartID() {
         return partID;

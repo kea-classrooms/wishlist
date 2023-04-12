@@ -4,6 +4,7 @@ import com.example.wishlist.model.ComputerPart;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.repository.Wishlist_DB_Repository;
+import com.example.wishlist.service.WishlistService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -19,20 +20,21 @@ import java.util.List;
 @Controller
 @RequestMapping("wishlist")
 public class WishlistController {
-    private Wishlist_DB_Repository database;
+    private WishlistService service;
 
     public WishlistController(ApplicationContext context, @Value("${wishlist.repository.impl}") String impl) {
-        this.database = (Wishlist_DB_Repository) context.getBean(impl);
+        this.service = new WishlistService((Wishlist_DB_Repository) context.getBean(impl));
     }
 
     @GetMapping("/add")
     public String addWishList(Model model) {
-        //TODO: wishlist skal addes til model, sammen med de typer af komponenter/andet data vi skal bruge
-        List<ComputerPart> computerParts = database.getParts();
-        Wishlist list = new Wishlist(1, "test");
-
-        model.addAttribute("wishList", list);
+        List<ComputerPart> computerParts = service.getPartsOrderedBy("pType");
         model.addAttribute("computerParts", computerParts);
+
+        Wishlist list = service.getWishListByID(1);
+        model.addAttribute("wishList", list);
+
+
         return "WishListUI";
     }
 

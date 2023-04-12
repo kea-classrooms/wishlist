@@ -3,12 +3,29 @@ package com.example.wishlist.model;
 import java.util.List;
 
 public class Wishlist {
-    private int listID, userID, totalPrice;
+    private int listID, userID;
     private String listName;
+    List<Wish> wishes;
 
-    public Wishlist(int userID, String listName) {
+    public Wishlist(int listID, int userID, String listName) {
+        this.listID = listID;
         this.userID = userID;
         this.listName = listName;
+    }
+
+    public List<Wish> getWishes() {
+        return wishes;
+    }
+
+    public boolean containsPart(int partID){
+        for (Wish wish : wishes) {
+            if (wish.getPartID() == partID) return true;
+        }
+        return false;
+    }
+
+    public void setWishes(List<Wish> wishes) {
+        this.wishes = wishes;
     }
 
     public int getListID() {
@@ -26,11 +43,6 @@ public class Wishlist {
     public void setUserID(int userID) {
         this.userID = userID;
     }
-
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
     public String getListName() {
         return listName;
     }
