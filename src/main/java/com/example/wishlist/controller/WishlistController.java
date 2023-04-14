@@ -1,20 +1,17 @@
 package com.example.wishlist.controller;
 
-import com.example.wishlist.model.ComputerPart;
-import com.example.wishlist.model.Wish;
-import com.example.wishlist.model.Wishlist;
+import com.example.wishlist.DTOs.BuildPartDTO;
+import com.example.wishlist.DTOs.ComponentDTO;
+import com.example.wishlist.DTOs.UserBuildDTO;
+import com.example.wishlist.DTOs.UserDTO;
 import com.example.wishlist.repository.Wishlist_DB_Repository;
 import com.example.wishlist.service.WishlistService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,22 +23,36 @@ public class WishlistController {
         this.service = new WishlistService((Wishlist_DB_Repository) context.getBean(impl));
     }
 
-    @GetMapping("/add")
-    public String addWishList(Model model) {
-        List<ComputerPart> computerParts = service.getPartsOrderedBy("pType");
-        model.addAttribute("computerParts", computerParts);
-
-        Wishlist list = service.getWishListByID(1);
-        model.addAttribute("wishList", list);
-
-
-        return "WishListUI";
+    @GetMapping("/")
+    public String welcome(Model model){
+        List<UserDTO> users = service.getAllUsers();
+        UserDTO selectedUser = new UserDTO();
+        model.addAttribute("users", users);
+        model.addAttribute("selectedUser", selectedUser);
+        return "login";
     }
 
-    @PostMapping("/add")
-    public String wishListSuccess(@ModelAttribute("wishlist") Wishlist wishlist) {
-        System.out.println(wishlist);
+    @GetMapping("/user-builds/{userID}")
+    public String showUserBuilds(Model model, @PathVariable int userID){
+        UserDTO user = service.getUser(userID);
+        model.addAttribute("user", user);
 
-        return "Wish_Success";
+        List<UserBuildDTO> userBuilds = service.getUserBuilds(userID);
+        model.addAttribute("userBuilds", userBuilds);
+
+        return "show-builds";
+    }
+
+    @GetMapping("build/{buildID}")
+    public String showBuild(Model model, @PathVariable int buildID){
+        UserBuildDTO build = service.getBuild(buildID);
+        model.addAttribute("build", build);
+
+        List<String> componentTypes = service.getComponentTypes();
+        model.addAttribute("componentTypes", componentTypes);
+
+        List<ComponentDTO> allParts = service.getAllParts();
+        model.addAttribute("allParts", allParts);
+        return "show-build";
     }
 }

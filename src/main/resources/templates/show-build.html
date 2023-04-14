@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${build.getBuildName()}"/>
+<form action="#" th:action="@{/wishlist/build/{buildID}(buildID = ${build.buildID})}" method="post" th:object="${build}">
+    <span th:each="type : ${componentTypes}">
+        <label th:text="${type + ': '}"/>
+            <select>
+                <option th:text="${type}" disabled selected />
+                <option th:each="part : ${allParts}" th:if="${part.pType == type && build.containsPart(part.partID)}" th:text="${part.pName}" selected style="font-weight: bold"/>
+                <option th:each="part : ${allParts}" th:unless="${part.pType != type || build.containsPart(part.partID)}" th:text="${part.pName}"/>
+            </select>
+        <br>
+    </span>
+    <button type="submit">Update build</button>
+</form>
+</body>
+</html>

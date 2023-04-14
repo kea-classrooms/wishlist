@@ -1,9 +1,6 @@
 package com.example.wishlist.service;
 
-import com.example.wishlist.DTOs.UserIDListNameDTO;
-import com.example.wishlist.model.ComputerPart;
-import com.example.wishlist.model.Wish;
-import com.example.wishlist.model.Wishlist;
+import com.example.wishlist.DTOs.*;
 import com.example.wishlist.repository.Wishlist_DB_Repository;
 import org.springframework.stereotype.Service;
 
@@ -18,18 +15,40 @@ public class WishlistService {
         this.db = wishlist_db_repository;
     }
 
-    public List<ComputerPart> getPartsOrderedBy(String pType) {
-       return db.getPartsOrdered(pType);
+    public List<UserDTO> getAllUsers() {
+        return db.getAllUsers();
     }
 
-    public Wishlist getWishListByID(int id) {
-        Wishlist wishlist = db.getWishListByID(id);
-        List<Wish> wishes = db.getWishesFromListID(wishlist.getListID());
-        wishlist.setWishes(wishes);
-        return wishlist;
+    public UserDTO getUser(int id) {
+        return db.getUser(id);
     }
 
-    public Wishlist addWishes(int id, List<Wish> wishes){
+    public List<UserBuildDTO> getUserBuilds(int id) {
+        List<UserBuildDTO> userBuildDTOS = db.getUserBuilds(id);
+        for (UserBuildDTO userBuildDTO : userBuildDTOS) {
+            userBuildDTO = getBuild(userBuildDTO.getBuildID());
+        }
+        return userBuildDTOS;
+    }
 
+    public UserBuildDTO getBuild(int buildID) {
+        UserBuildDTO build = db.getBuild(buildID);
+        List<BuildPartDTO> parts = db.getBuildParts(buildID);
+        //TODO: Det her skal ryddes op og samles til 1 database kald
+        for (BuildPartDTO part : parts) {
+            part.setName(db.getPartName(part.getPartID()));
+            part.setPartType(db.getPartType(part.getPartID()));
+        }
+        build.addParts(parts);
+
+        return build;
+    }
+
+    public List<String> getComponentTypes() {
+        return db.getAllComponentTypes();
+    }
+
+    public List<ComponentDTO> getAllParts() {
+        return db.getAllComponents();
     }
 }

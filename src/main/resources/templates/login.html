@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>WELCOME PLEASE CHOOSE USER</h1>
+    <a th:each="user : ${users}" th:href="@{http://localhost:8080/wishlist/user-builds/{id} (id=${user.getUserID()})}"><button th:text="${user.uName}" >Log in</button><br></a>
+</body>
+</html>
