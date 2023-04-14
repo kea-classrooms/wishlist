@@ -38,8 +38,9 @@ public class WishlistService {
         for (BuildPartDTO part : parts) {
             part.setName(db.getPartName(part.getPartID()));
             part.setPartType(db.getPartType(part.getPartID()));
+            build.instantiateParts();
+            build.addPart(part);
         }
-        build.addParts(parts);
 
         return build;
     }
@@ -50,5 +51,9 @@ public class WishlistService {
 
     public List<ComponentDTO> getAllParts() {
         return db.getAllComponents();
+    }
+
+    public void updateBuild(UserBuildDTO build) {
+        System.out.println(build);
     }
 }

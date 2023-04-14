@@ -55,4 +55,10 @@ public class WishlistController {
         model.addAttribute("allParts", allParts);
         return "show-build";
     }
+
+    @PostMapping("build/{buildID}")
+    public String showBuild(@ModelAttribute("build") UserBuildDTO build, @PathVariable int buildID){
+        service.updateBuild(build);
+        return "build-updated";
+    }
 }

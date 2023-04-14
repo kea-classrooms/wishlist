@@ -5,6 +5,9 @@ public class BuildPartDTO {
     boolean isWish;
     String name, partType;
 
+    public BuildPartDTO() {
+    }
+
     public BuildPartDTO(int partID, int numberCount, boolean isWish) {
         this.partID = partID;
         this.numberCount = numberCount;
