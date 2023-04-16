@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<style>
+    .background-image{
+        background-image: url("rgbeast_wide_environmentsmall.webp");
+        width: 1920px;
+        height: 1080px;
+    }
+    #Header-div{
+        position: absolute;
+        width: 688px;
+        height: 139px;
+        left: 580px;
+        top: 50px;
+
+        font-family: 'Geo';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 56px;
+        text-align: center;
+        letter-spacing: 0.08em;
+
+        color: #FFF3F3;
+
+        mix-blend-mode: color-dodge;
+
+    }
+    #create-about-div{
+        position: absolute;
+        width: 688px;
+        height: 139px;
+        left: 580px;
+        top: 135px;
+
+        font-family: 'Geo';
+        font-style: normal;
+        font-weight: 200;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 0.08em;
+
+        color: #FFF3F3;
+
+        mix-blend-mode: color-dodge;
+    }
+    .signup-box{
+        position: absolute;
+        top: 200px;
+        width: 360px;
+        height: 620px;
+        margin: auto;
+        left:750px;
+        border-radius: 3px;
+
+
+    }
+    form{
+        width: 300px;
+        margin-left: 20px;
+    }
+    form label{
+        display: flex;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+    form  input{
+        width: 100%;
+        padding: 7px;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+
+    }
+    input[type="button"]{
+        width: 320px;
+        height: 35px;
+        margin-top: 20px;
+        border: none;
+        font-size: 18px
+
+
+    }
+    #alreadyowns-div{
+        position: absolute;
+        left: 800px;
+        top: 550px;
+        font-size: 20px;
+    }
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="Header-div">
+    <h1>Create your account</h1>
+</div>
+<div id="create-about-div">
+    <h2>create your account to create and modify your wishlists</h2>
+</div>
+<div class="signup-box">
+
+        <form>
+            <label>Email</label>
+            <input type="email" placeholder="">
+            <label>Username</label>
+            <input type="text" placeholder="">
+            <label>Password</label>
+            <input type="password" placeholder="">
+            <label>Confirm password</label>
+            <input type="password" placeholder="">
+            <input type="button" value="Submit">
+        </form>
+
+
+</div>
+<div id="alreadyowns-div">
+    <p class="para-2">     Already own an account? <a href="Login.html"> Login here</a> </p>
+</div>
+
+
+<div class="background-image">
+</div>
+</body>
+<h1></h1>
+</html>

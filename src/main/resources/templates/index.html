@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Spring Boot Form Demo</title>
+</head>
+<style>
+  .product-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .product-dropdown-btn {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .product-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f8f8f8;
+    min-width: 150px;
+    z-index: 1;
+  }
+
+  .product-dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .product-dropdown:hover .product-dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+</style>
+<body>
+<div class="product-dropdown">
+  <button class="product-dropdown-btn">Select Product</button>
+  <div class="product-dropdown-content">
+    <a href="#product1">Product 1</a>
+    <a href="#product2">Product 2</a>
+    <a href="#product3">Product 3</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
