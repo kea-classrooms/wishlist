@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <title>New Wish</title>
     <style>
+        .background-image{
+            background-image: url("rgbeast_wide_environmentsmall.webp");
+            width: 1920px;
+            height: 1080px;
+        }
+        form{
+            position: absolute;
+            align-content: center;
+            left: 800px;
+            top: 100px;
+            color: white;
+            font-size: 18px;
+        }
+        h1{
+            position: absolute;
+            align-content: center;
+            left: 800px;
+        }
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -25,21 +43,25 @@
 <body>
 
 <h1>Create a new wish</h1>
-<h1 style="background-color: lightblue">
-    <form action="#" th:action="@{/wishlist/add}" method="post" th:object="${wishList}">
-        <label1>Pick your parts:</label1>
-        <br>
-        <span th:each="pType : ${componentTypes}">
-        <select id="Computer Part" name="">
-            <option th:text="${pType}" />
-            <optgroup label="ASUS"></optgroup>
-            <optgroup label="MSI"></optgroup>
-            <optgroup label="NVIDIA"></optgroup>
-        </select>
-        <br>
-        </span>
-        <button type="submit"> Add wish </button>
+<form action="/action_page.php">
+    <label for="card">Choose Graphics card:</label>
+    <select name="card" id="card">
+        <option value="0">Select Card</option>
+        <optgroup label="RTX 3080">
+            <option value="1">NVIDIA GeForce RTX 3080</option>
+            <option value="2">Asus ROG STRIX RTX 3080</option>
+        </optgroup>
+        <optgroup label="GTX 1080">
+            <option value="3">MSI GeForce GTX 1080 Gaming X 8G</option>
+            <option value="4">ZOTAC GeForce® GTX 1080 Mini</option>
+        </optgroup>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
 </form>
-</h1>
+
+<div class="background-image">
+
+</div>
 </body>
 </html>

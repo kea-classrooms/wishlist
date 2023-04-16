@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  #login{
+    position: absolute;
+    top: 200px;
+    width: 360px;
+    height: 620px;
+    margin: auto;
+    left:750px;
+    border-radius: 3px;
+
+
+  }
+  form{
+    width: 300px;
+    margin-left: 20px;
+  }
+  form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  form  input{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+
+  }
+  input[type="button"]{
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    font-size: 18px
+
+
+  }
+  h2{
+    position: absolute;
+    align-content: center;
+    left: 870px;
+    top: 100px;
+
+    font-family: 'Geo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 71px;
+    text-align: center;
+    letter-spacing: 0.08em;
+
+    color: #FFF3F3;
+
+    mix-blend-mode: color-dodge;
+  }
+  #noaccount-div{
+    position: absolute;
+    left: 775px;
+    top: 470px;
+    font-size: 20px;
+  }
+
+  .background-image{
+    background-image: url("rgbeast_wide_environmentsmall.webp");
+    width: 1920px;
+    height: 1080px;
+  }
+</style>
+<body>
+<h2> Login</h2>
+<div id="login">
+  <form>
+    <label>Email</label>
+    <input type="email" placeholder="">
+    <label>Username</label>
+    <input type="text" placeholder="">
+    <label>Password</label>
+    <input type="password" placeholder="">
+    <input type="button" value="Sign in">
+  </form>
+</div>
+<div class="background-image">
+
+</div>
+<div id="noaccount-div">
+  <p class="noaccount">     Dont have an account? <a href="register_form.html"> Create one here</a> </p>
+</div>
+</body>
+</html>
