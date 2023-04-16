@@ -15,6 +15,9 @@ public class UserBuildDTO {
     private BuildPartDTO storage = new BuildPartDTO();
     private BuildPartDTO cooler = new BuildPartDTO();
 
+    public UserBuildDTO() {
+    }
+
     public UserBuildDTO(int userID, int buildID, String buildName) {
         this.userID = userID;
         this.buildID = buildID;

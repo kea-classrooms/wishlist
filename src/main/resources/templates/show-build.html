@@ -10,9 +10,9 @@
     <span>
         <label>Motherboard: </label>
         <select th:field="*{motherboard}">
-            <option th:text="${build.motherboard.partType}" th:value="${0}" disabled selected />
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.motherboard.partType && build.containsPart(part.partID)}" th:value="${part.partID}" th:text="${part.pName}" selected style="font-weight: bold"/>
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.motherboard.partType && !build.containsPart(part.partID)}" th:value="${part.partID}" th:text="${part.pName}"/>
+            <option th:text="${build.motherboard.partType}" th:value="${build.motherboard}" disabled selected />
+            <option th:each="part : ${allParts}" th:if="${part.partType == build.motherboard.partType && build.containsPart(part.partID)}" th:value="${part}" th:text="${part.name}" selected style="font-weight: bold"/>
+            <option th:each="part : ${allParts}" th:if="${part.partType == build.motherboard.partType && !build.containsPart(part.partID)}" th:value="${part}" th:text="${part.name}"/>
         </select>
     <br>
     </span>

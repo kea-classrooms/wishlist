@@ -1,7 +1,6 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.DTOs.BuildPartDTO;
-import com.example.wishlist.DTOs.ComponentDTO;
 import com.example.wishlist.DTOs.UserBuildDTO;
 import com.example.wishlist.DTOs.UserDTO;
 import com.example.wishlist.repository.Wishlist_DB_Repository;
@@ -51,7 +50,7 @@ public class WishlistController {
         List<String> componentTypes = service.getComponentTypes();
         model.addAttribute("componentTypes", componentTypes);
 
-        List<ComponentDTO> allParts = service.getAllParts();
+        List<BuildPartDTO> allParts = service.getAllParts();
         model.addAttribute("allParts", allParts);
         return "show-build";
     }

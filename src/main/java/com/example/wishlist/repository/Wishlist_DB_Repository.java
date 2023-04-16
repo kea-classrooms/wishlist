@@ -1,7 +1,6 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.DTOs.BuildPartDTO;
-import com.example.wishlist.DTOs.ComponentDTO;
 import com.example.wishlist.DTOs.UserBuildDTO;
 import com.example.wishlist.DTOs.UserDTO;
 import org.springframework.stereotype.Repository;
@@ -147,16 +146,16 @@ public class Wishlist_DB_Repository {
         return types;
     }
 
-    public List<ComponentDTO> getAllComponents() {
+    public List<BuildPartDTO> getAllComponents() {
 
-        List<ComponentDTO> parts = new ArrayList<>();
+        List<BuildPartDTO> parts = new ArrayList<>();
         try{
             Connection con = DBManager.getConnection();
             String query = "SELECT * FROM COMPUTERPART";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                parts.add(new ComponentDTO(rs.getInt("partID"), rs.getInt("pPrice"), rs.getString("pType"), rs.getString("pName")));
+                parts.add(new BuildPartDTO(rs.getInt("partID"), 1, false));
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
