@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .background-image{
+        background-image: url("rgbeast_wide_environmentsmall.webp");
+        width: 1920px;
+        height: 1080px;
+    }
+    #guide-title {
+
+
+        font-family: 'Geo';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 71px;
+        text-align: center;
+        letter-spacing: 0.08em;
+
+        color: #FFF3F3;
+
+        mix-blend-mode: color-dodge;
+
+    }
+    h1{
+        position: absolute;
+        width: 551px;
+        height: 87px;
+        left: 633px;
+        top: 50px;
+    }
+    h3{
+        position: absolute;
+        width: 551px;
+        height: 87px;
+        left: 650px;
+        top: 160px;
+        font-size: 25px;
+
+    }
+    #steps{
+        position: absolute;
+        align-content: center;
+        top: 300px;
+        left: 700px;
+        font-size: 20px;
+        color: white;
+
+    }
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+    }
+
+    .openbtn:hover {
+        background-color: #444;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        position: absolute;
+        bottom: 850px;
+
+    }
+</style>
+<body>
+<div class="background-image">
+
+</div>
+<div id="guide-title">
+    <h1> Guide</h1>
+    <h3> follow these following steps below</h3>
+</div>
+<div id="steps">
+<div id="step1">
+    <p>Step 1 --> Pick your desired cabinet</p>
+</div>
+<div id="step2">
+    <p>Step 2 --> Pick your desired Motherboard</p>
+</div>
+<div id="step3">
+    <p>Step 3 --> Pick all other components without worrying about compatabiltiy!</p>
+</div>
+<div id="step4">
+    <p>Step 4 --> Finalize and create your build!</p>
+</div>
+<div id="step5">
+    <p>Step 5 --> Share your build/wishlist!</p>
+</div>
+</div>
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="Login.html">Login</a>
+    <a href="register_form.html">Create account</a>
+    <a href="Guide.html">Guide</a>
+    <a href="#">About us</a>
+</div>
+
+<div id="main">
+    <button class="openbtn" onclick="openNav()">☰ Navigation</button>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+</script>
+
+</body>
+</html>
