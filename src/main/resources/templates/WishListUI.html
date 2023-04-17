@@ -9,19 +9,42 @@
             width: 1920px;
             height: 1080px;
         }
-        form{
-            position: absolute;
-            align-content: center;
-            left: 800px;
-            top: 100px;
-            color: white;
-            font-size: 18px;
-        }
+
         h1{
             position: absolute;
             align-content: center;
             left: 800px;
+            top: 50px;
+            font-family: 'Geo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 71px;
+            text-align: center;
+            letter-spacing: 0.08em;
+
+            color: #FFF3F3;
+
+            mix-blend-mode: color-dodge;
         }
+        h3{
+            position: absolute;
+            align-content: center;
+            left: 400px;
+            top: 150px;
+            font-family: 'Geo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 71px;
+            text-align: center;
+            letter-spacing: 0.08em;
+
+            color: #FFF3F3;
+
+            mix-blend-mode: color-dodge;
+        }
+
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -38,27 +61,209 @@
         .button:hover {
             background-color: #0069d9;
         }
+        #cabinet-div {
+            position: absolute;
+            align-content: center;
+            left: 1200px;
+            top: 250px;
+            font-size: 18px;
+            color: white;
+        }
+        #motherboard-div{
+            position: absolute;
+            align-content: center;
+            left: 1200px;
+            top: 350px;
+            font-size: 18px;
+            color: white;
+        }
+        #CPU-div{
+            position: absolute;
+            align-content: center;
+            left: 1200px;
+            top: 450px;
+            font-size: 18px;
+            color: white;
+        }
+        #graphics-div{
+            position: absolute;
+            align-content: center;
+            left: 1200px;
+            top: 550px;
+            font-size: 18px;
+            color: white;
+        }
+        #ram-div{
+            position: absolute;
+            align-content: center;
+            left: 1200px;
+            top: 650px;
+            font-size: 18px;
+            color: white;
+        }
+        #storage-div{
+            position: absolute;
+            align-content: center;
+            left: 1200px;
+            top: 750px;
+            font-size: 18px;
+            color: white;
+        }
+        #powersupply-div{
+            position: absolute;
+            align-content: center;
+            left: 1200px;
+            top: 850px;
+            font-size: 18px;
+            color: white;
+        }
+        #submit-button{
+            position: absolute;
+            align-content: center;
+            left: 1000px;
+            top: 950px;
+            font-size: 18px;
+            color: white;
+        }
+
+
+
     </style>
 </head>
 <body>
 
 <h1>Create a new wish</h1>
-<form action="/action_page.php">
-    <label for="card">Choose Graphics card:</label>
-    <select name="card" id="card">
-        <option value="0">Select Card</option>
-        <optgroup label="RTX 3080">
-            <option value="1">NVIDIA GeForce RTX 3080</option>
-            <option value="2">Asus ROG STRIX RTX 3080</option>
-        </optgroup>
-        <optgroup label="GTX 1080">
-            <option value="3">MSI GeForce GTX 1080 Gaming X 8G</option>
-            <option value="4">ZOTAC GeForce® GTX 1080 Mini</option>
-        </optgroup>
-    </select>
-    <br><br>
-    <input type="submit" value="Submit">
-</form>
+<h3>To Create your build, pick your desired parts below and after having completed the selection you can finalize your build!</h3>
+
+<div id="cabinet-div">
+    <form class="cabinet-dragdown">
+        <label for="cabinet">Choose cabinet:</label>
+        <select name="cabinet" id="cabinet">
+            <option value="0">Select Cabinet</option>
+            <optgroup label="Mid Tower">
+                <option value="1">NZXT H710i</option>
+                <option value="2">Corsair Airflow 4000D</option>
+            </optgroup>
+            <optgroup label="Full Tower">
+                <option value="3">Phanteks NV7</option>
+                <option value="4">CORSAIR 7000D AIRFLOW Full-Tower ATX</option>
+            </optgroup>
+        </select>
+        <br><br>
+
+    </form>
+</div>
+
+<div id="motherboard-div">
+    <form class="Motherboard-dragdown">
+        <label for="motherboard">Choose cabinet:</label>
+        <select name="motherboard" id="motherboard">
+            <option value="0">Select Motherboard</option>
+                <option value="1">Gigabyte Z790 AORUS ELITE AX</option>
+                <option value="2">ASUS ROG Strix Z790-F</option>
+                <option value="3">MSI MAG Z690 Tomahawk WiFi</option>
+                <option value="4">ASUS ROG Maximus Z790 HERO</option>
+                <option value="5">Corsair Airflow 4000D</option>
+        </select>
+        <br><br>
+
+    </form>
+</div>
+
+<div id="CPU-div">
+    <form class="GPU-dragdown">
+        <label for="CPU">Choose Graphics card:</label>
+        <select name="CPU" id="CPU">
+            <option value="0">Select CPU</option>
+            <optgroup label="Intel Core i5 processors">
+                <option value="1">Intel Core i5-13600KF</option>
+                <option value="2">Intel Core i5-12600K</option>
+            </optgroup>
+            <optgroup label="Intel Core i7 processors">
+                <option value="3">Intel Core i7-13700K</option>
+                <option value="4">Intel Core i7 11700K</option>
+            </optgroup>
+        </select>
+        <br><br>
+
+    </form>
+</div>
+
+<div id="graphics-div">
+    <form class="Graphics-dragdown">
+        <label for="card">Choose Graphics card:</label>
+        <select name="card" id="card">
+            <option value="0">Select Card</option>
+            <optgroup label="RTX 3080">
+                <option value="1">NVIDIA GeForce RTX 3080</option>
+                <option value="2">Asus ROG STRIX RTX 3080</option>
+            </optgroup>
+            <optgroup label="GTX 1080">
+                <option value="3">MSI GeForce GTX 1080 Gaming X 8G</option>
+                <option value="4">ZOTAC GeForce® GTX 1080 Mini</option>
+            </optgroup>
+        </select>
+        <br><br>
+
+    </form>
+</div>
+<div id="ram-div">
+    <form class="ram-dragdown">
+        <label for="ram">Choose RAM:</label>
+        <select name="ram" id="ram">
+            <option value="0">Select RAM</option>
+            <optgroup label="DDR4 3200MHz">
+                <option value="1">Kingston Fury Beast Black DDR4 3200MHz 2x8GB </option>
+                <option value="2">Corsair Vengeance LPX Black DDR4 3200MHz 2x8GB </option>
+            </optgroup>
+            <optgroup label="DDR4 3600MHz">
+                <option value="3">Corsair Vengeance Black RGB LED Pro DDR4 3600MHz 2x16GB</option>
+                <option value="4">G.Skill Ripjaws V Black DDR4 3600MHz 2x8GB</option>
+            </optgroup>
+        </select>
+        <br><br>
+
+    </form>
+</div>
+<div id="storage-div">
+    <form class="storage-dragdown">
+        <label for="storage">Choose Storage:</label>
+        <select name="storage" id="storage">
+            <option value="0">Select Storage</option>
+            <optgroup label="SSD">
+                <option value="1">Samsung 980 PRO SSD PCIe 4.0 NVMe M.2 - 2TB</option>
+                <option value="2">Kingston SSDNow A400 SSD - 480GB</option>
+            </optgroup>
+            <optgroup label="HDD">
+                <option value="3">Seagate BarraCuda 3.5" Harddisk - 4 TB</option>
+                <option value="4">WD Blue Harddisk - 2 TB - 3.5"</option>
+            </optgroup>
+        </select>
+        <br><br>
+
+    </form>
+</div>
+
+<div id="powersupply-div">
+    <form class="powersupply-dragdown">
+        <label for="powersupply">Choose Storage:</label>
+        <select name="powersupply" id="powersupply">
+            <option value="0">Select Power Supply</option>
+            <optgroup label="Bronze">
+                <option value="1">CORSAIR CV550</option>
+            </optgroup>
+            <optgroup label="Gold">
+                <option value="3">CORSAIR RM750X 80 PLUS GOLD</option>
+                <option value="4">ASUS ROG STRIX 550W GOLD</option>
+            </optgroup>
+        </select>
+        <br><br>
+
+    </form>
+</div>
+<div id="submit-button">
+    <input type="submit" value="Create build">
+</div>
 
 <div class="background-image">
 

@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Added Successfully</title>
-  <style type="text/css">
-    span {
-      display: inline-block;
+
+  <style>
+    #list-div {
+      position: absolute;
+      align-content: center;
       width: 200px;
       text-align: center;
+      left: 850px;
+      color: white;
     }
-  </style>
-  <style>
+    h2{
+      color: black;
+    }
     .button {
       display: inline-block;
       padding: 10px 20px;
@@ -27,10 +32,16 @@
     .button:hover {
       background-color: #0069d9;
     }
+    .background-image{
+      background-image: url("rgbeast_wide_environmentsmall.webp");
+      width: 1920px;
+      height: 1080px;
+    }
+
   </style>
 </head>
 <body>
-<div align="center">
+<div id="list-div">
   <h2>Wish added successfully</h2>
   <span>Selected Graphic Card:</span><br>
   <span>Selected Motherboard:</span><br>
@@ -44,6 +55,9 @@
 
   <a href="Wishlist/add" class="button"> Create new wish </a>
   <a href="LoggedInFrontPage.html" class="button"> Return to frontpage </a>
+
+</div>
+<div class="background-image">
 
 </div>
 </body>
