@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Wish created: </h1>
+<h3 th:text="'You\'ve wished for:' + ${wish.name}" />
+<a th:href="@{http://localhost:8080/wishlist/user-builds/{userID} (userID=${userID})}"><button>Back to builds</button></a>
+<a th:href="@{http://localhost:8080/wishlist/build/{buildID} (buildID=${buildID})}"><button>Create new wish</button></a>
+</body>
+</html>

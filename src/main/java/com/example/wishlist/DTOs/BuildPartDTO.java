@@ -1,14 +1,36 @@
 package com.example.wishlist.DTOs;
 
 public class BuildPartDTO {
-    int partID, numberCount;
+    int partID;
+    int numberCount;
+
+    public UserBuildDTO getBuild() {
+        return build;
+    }
+
+    public void setBuild(UserBuildDTO build) {
+        this.build = build;
+    }
+
+    UserBuildDTO build;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    int price;
     boolean isWish;
     String name, partType;
 
-    public BuildPartDTO() {
+    public  BuildPartDTO() {
     }
 
-    public BuildPartDTO(int partID, int numberCount, boolean isWish) {
+    public BuildPartDTO(int partID, int numberCount, boolean isWish, UserBuildDTO build) {
+        this.build = build;
         this.partID = partID;
         this.numberCount = numberCount;
         this.isWish = isWish;
@@ -53,4 +75,10 @@ public class BuildPartDTO {
     public void setWish(boolean wish) {
         isWish = wish;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

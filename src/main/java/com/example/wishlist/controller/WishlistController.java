@@ -39,6 +39,9 @@ public class WishlistController {
         List<UserBuildDTO> userBuilds = service.getUserBuilds(userID);
         model.addAttribute("userBuilds", userBuilds);
 
+        List<BuildPartDTO> wishes = service.getWishes(userID);
+        model.addAttribute("wishes", wishes);
+
         return "show-builds";
     }
 
@@ -49,10 +52,30 @@ public class WishlistController {
 
         List<String> componentTypes = service.getComponentTypes();
         model.addAttribute("componentTypes", componentTypes);
+        return "show-build";
+    }
+
+    @GetMapping("create-wish/{buildID}/{partType}")
+    public String createWish(Model model, @PathVariable int buildID, @PathVariable String partType){
+        UserBuildDTO build = service.getBuild(buildID);
+        BuildPartDTO currentPart = build.getPart(partType);
+        model.addAttribute("currentPart", currentPart);
 
         List<BuildPartDTO> allParts = service.getAllParts();
         model.addAttribute("allParts", allParts);
-        return "show-build";
+
+        BuildPartDTO wish = new BuildPartDTO();
+        model.addAttribute("wish", wish);
+
+        return "create-wish";
+    }
+
+    @PostMapping("create-wish/{buildID}/{partType}")
+    public String wishCreated(@ModelAttribute ("wish") BuildPartDTO wish, @PathVariable ("buildID") int buildID, @PathVariable ("partType") String partType, Model model){
+        UserBuildDTO build = service.getBuild(buildID);
+        model.addAttribute("userID", build.getUserID());
+        service.createWish(wish, build);
+        return "wish-created";
     }
 
     @PostMapping("build/{buildID}")

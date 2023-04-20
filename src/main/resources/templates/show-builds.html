@@ -6,7 +6,12 @@
 </head>
 <body>
 <h1 th:text="'Hello ' + ${user.uName}" />
-<h2> Please choose a build:</h2>
-<a th:each="build : ${userBuilds}" th:href="@{http://localhost:8080/wishlist/build/{id} (id=${build.getBuildID()})}"><button th:text="${build.getBuildName()}" >Log in</button><br></a>
+<h2> Your build:</h2>
+<a th:each="build : ${userBuilds}" th:href="@{http://localhost:8080/wishlist/build/{id} (id=${build.getBuildID()})}"><button th:text="${build.getBuildName()}"></button><br></a>
+<h2> Your wishes: </h2>
+<span th:each="wish : ${wishes}">
+    <span th:text="${wish.name} + ': ' + ${wish.numberCount} + ' pcs, for build: ' + ${wish.build.buildName}"/>
+    </br>
+</span>
 </body>
 </html>

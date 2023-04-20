@@ -5,6 +5,10 @@ import java.util.List;
 
 public class UserBuildDTO {
     private int userID, buildID;
+
+
+    List<Integer> updatedParts;
+    private int motherboardPartID, gpuPartID, cpuPartID, powerSupplyPartID, storagePartID, coolerPartID;
     private String buildName;
     private List<BuildPartDTO> parts;
 
@@ -16,12 +20,28 @@ public class UserBuildDTO {
     private BuildPartDTO cooler = new BuildPartDTO();
 
     public UserBuildDTO() {
+        motherboardPartID = 0;
+        gpuPartID = 0;
+        cpuPartID = 0;
+        powerSupplyPartID = 0;
+        storagePartID = 0;
+        coolerPartID = 0;
+        updatedParts = new ArrayList<>(List.of(motherboardPartID, gpuPartID, cpuPartID, powerSupplyPartID, storagePartID, coolerPartID));
     }
+
+
 
     public UserBuildDTO(int userID, int buildID, String buildName) {
         this.userID = userID;
         this.buildID = buildID;
         this.buildName = buildName;
+        motherboardPartID = 0;
+        gpuPartID = 0;
+        cpuPartID = 0;
+        powerSupplyPartID = 0;
+        storagePartID = 0;
+        coolerPartID = 0;
+        updatedParts = new ArrayList<>(List.of(motherboardPartID, gpuPartID, cpuPartID, powerSupplyPartID, storagePartID, coolerPartID));
     }
 
     public int getUserID() {
@@ -61,7 +81,6 @@ public class UserBuildDTO {
             case "storage" -> setStorage(part);
             case "cpu cooler" -> setCooler(part);
         }
-        parts = new ArrayList<>(List.of(motherboard, gpu, cpu, powerSupply, storage, cooler));
     }
 
     public boolean containsPart(int id){
@@ -69,6 +88,18 @@ public class UserBuildDTO {
             if (part.partID == id) return true;
         }
         return false;
+    }
+
+    public BuildPartDTO getPart(String type){
+        return switch (type.toLowerCase()){
+            case "motherboard" -> motherboard;
+            case "gpu" -> gpu;
+            case "cpu" -> cpu;
+            case "power supply" -> powerSupply;
+            case "storage" -> storage;
+            case "cpu cooler" -> cooler;
+            default -> null;
+        };
     }
 
     public BuildPartDTO getMotherboard() {
@@ -126,5 +157,68 @@ public class UserBuildDTO {
         powerSupply.setPartType("Power Supply");
         storage.setPartType("Storage");
         cooler.setPartType("CPU Cooler");
+        parts = new ArrayList<>(List.of(motherboard, gpu, cpu, powerSupply, storage, cooler));
+    }
+
+    public List<Integer> getPartIDs() {
+        List<Integer> partIDs = new ArrayList<>();
+        for (BuildPartDTO part : parts) {
+            partIDs.add(part.partID);
+        }
+        return partIDs;
+    }
+
+    public int getUpdatedPartID(String partType) {
+        return switch (partType.toLowerCase()) {
+            case "motherboard" -> motherboardPartID;
+            case "gpu" -> gpuPartID;
+            case "cpu" -> cpuPartID;
+            case "power supply" -> powerSupplyPartID;
+            case "storage" -> storagePartID;
+            case "cpu cooler" -> coolerPartID;
+            default -> 0;
+        };
+    }
+
+    public List<Integer> getUpdatedParts() {
+        return updatedParts;
+    }
+
+    public void setUpdatedParts(List<Integer> updatedParts) {
+        this.updatedParts = updatedParts;
+    }
+
+    public int getMotherboardPartID() {
+        return motherboardPartID;
+    }
+
+    public void setMotherboardPartID(int motherboardPartID) {
+        this.motherboardPartID = motherboardPartID;
+        updatedParts = new ArrayList<>(List.of(motherboardPartID, gpuPartID, cpuPartID, powerSupplyPartID, storagePartID, coolerPartID));
+    }
+
+    public int getPartID(String partType) {
+        return switch (partType){
+            case "motherboard" -> motherboard.getPartID();
+            case "gpu" -> gpu.getPartID();
+            case "cpu" -> cpu.getPartID();
+            case "power supply" -> powerSupply.getPartID();
+            case "storage" -> storage.getPartID();
+            case "cpu cooler" -> cooler.getPartID();
+            default -> 0;
+        };
+    }
+
+    @Override
+    public String toString() {
+        return "UserBuildDTO{" +
+                "buildName='" + buildName + '\'' +
+                ", motherboard=" + motherboard +
+                ", gpu=" + gpu +
+                ", cpu=" + cpu +
+                ", powerSupply=" + powerSupply +
+                ", storage=" + storage +
+                ", cooler=" + cooler +
+                '}';
     }
 }
