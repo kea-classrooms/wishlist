@@ -6,5 +6,7 @@
 </head>
 <body>
 <h1>BUILD UPDATED YAY</h1>
+<span th:text="${build.buildName} + ' Updated'"></span>
+<span th:each="part : ${build.parts}" th:text="${part.partType + ': ' + part.name}"/>
 </body>
 </html>

@@ -6,54 +6,12 @@
 </head>
 <body>
 <h1 th:text="${build.buildName + ', UserID = ' + build.userID}"/>
-<form action="#" th:action="@{/wishlist/build/{buildID}(buildID = ${build.buildID})}" method="post" th:object="${build}">
-    <span>
-        <label>Motherboard: </label>
-        <select th:field="*{motherboard}">
-            <option th:text="${build.motherboard.partType}" th:value="${build.motherboard}" disabled selected />
-            <option th:each="part : ${allParts}" th:if="${part.partType == build.motherboard.partType && build.containsPart(part.partID)}" th:value="${part}" th:text="${part.name}" selected style="font-weight: bold"/>
-            <option th:each="part : ${allParts}" th:if="${part.partType == build.motherboard.partType && !build.containsPart(part.partID)}" th:value="${part}" th:text="${part.name}"/>
-        </select>
+<span th:object="${build}">
+    <span th:each="part : *{parts}" th:with="partType = ${part.partType}">
+        <label th:text="${partType} + ': ' + ${part.name}" />
+        <a th:href="@{http://localhost:8080/wishlist/create-wish/{buildID}/{partType} (buildID=${build.getBuildID()}, partType=${part.getPartType()})}"><button>Create wish</button></a>
     <br>
     </span>
-    <!--
-    <span>
-        <label th:text="*{partType + ': '}"/>
-        <select>
-            <option th:text="*{partType}" disabled selected />
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.gpu.partType && build.containsPart(part.partID)}" th:text="${part.pName}" selected style="font-weight: bold"/>
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.gpu.partType && !build.containsPart(part.partID)}" th:text="${part.pName}"/>
-        </select>
-    <br>
-    </span>
-    <span>
-        <label th:text="*{partType + ': '}"/>
-        <select>
-            <option th:text="*{partType}" disabled selected />
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.cpu.partType && build.containsPart(part.partID)}" th:text="${part.pName}" selected style="font-weight: bold"/>
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.cpu.partType && !build.containsPart(part.partID)}" th:text="${part.pName}"/>
-        </select>
-    <br>
-    </span>
-    <span>
-        <label th:text="*{partType + ': '}"/>
-        <select>
-            <option th:text="*{partType}" disabled selected />
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.cooler.partType && build.containsPart(part.partID)}" th:text="${part.pName}" selected style="font-weight: bold"/>
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.cooler.partType && !build.containsPart(part.partID)}" th:text="${part.pName}"/>
-        </select>
-    <br>
-    </span>
-    <span>
-        <label th:text="*{partType + ': '}"/>
-        <select>
-            <option th:text="*{partType}" disabled selected />
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.powerSupply.partType && build.containsPart(part.partID)}" th:text="${part.pName}" selected style="font-weight: bold"/>
-            <option th:each="part : ${allParts}" th:if="${part.pType == build.powerSupply.partType && !build.containsPart(part.partID)}" th:text="${part.pName}"/>
-        </select>
-    <br>
-    </span>-->
-    <button type="submit">Update build</button>
-</form>
+</span>
 </body>
 </html>

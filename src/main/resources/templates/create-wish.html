@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/wishlist/create-wish/{buildID}/{partType} (buildID = ${buildID}, partType = ${partType})}" method="post">
+    <span th:text="'Select a ' +  ${partType} + ': '"/>
+    <select th:field="${wish.name}">
+        <option th:text="${partType}" th:value="${''}" disabled selected />
+        <option th:each="part : ${allParts}" th:if="${part.partType == partType && part.partID == currentPart.partID}" th:value="${part.name}" th:text="${part.name}"  style="font-weight: bold" selected/>
+        <option th:each="part : ${allParts}" th:if="${part.partType == partType && part.partID != currentPart.partID}" th:value="${part.name}" th:text="${part.name}"/>
+    </select>
+    </br>
+
+    <span th:text="'Select number: '"/>
+    <input type="number" th:field="${wish.numberCount}">
+    </br>
+    <button type="submit">Create wish</button>
+</form>
+</body>
+</html>
