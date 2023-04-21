@@ -83,13 +83,6 @@ public class UserBuildDTO {
         }
     }
 
-    public boolean containsPart(int id){
-        for (BuildPartDTO part : parts) {
-            if (part.partID == id) return true;
-        }
-        return false;
-    }
-
     public BuildPartDTO getPart(String type){
         return switch (type.toLowerCase()){
             case "motherboard" -> motherboard;
@@ -160,26 +153,6 @@ public class UserBuildDTO {
         parts = new ArrayList<>(List.of(motherboard, gpu, cpu, powerSupply, storage, cooler));
     }
 
-    public List<Integer> getPartIDs() {
-        List<Integer> partIDs = new ArrayList<>();
-        for (BuildPartDTO part : parts) {
-            partIDs.add(part.partID);
-        }
-        return partIDs;
-    }
-
-    public int getUpdatedPartID(String partType) {
-        return switch (partType.toLowerCase()) {
-            case "motherboard" -> motherboardPartID;
-            case "gpu" -> gpuPartID;
-            case "cpu" -> cpuPartID;
-            case "power supply" -> powerSupplyPartID;
-            case "storage" -> storagePartID;
-            case "cpu cooler" -> coolerPartID;
-            default -> 0;
-        };
-    }
-
     public List<Integer> getUpdatedParts() {
         return updatedParts;
     }
@@ -197,17 +170,6 @@ public class UserBuildDTO {
         updatedParts = new ArrayList<>(List.of(motherboardPartID, gpuPartID, cpuPartID, powerSupplyPartID, storagePartID, coolerPartID));
     }
 
-    public int getPartID(String partType) {
-        return switch (partType){
-            case "motherboard" -> motherboard.getPartID();
-            case "gpu" -> gpu.getPartID();
-            case "cpu" -> cpu.getPartID();
-            case "power supply" -> powerSupply.getPartID();
-            case "storage" -> storage.getPartID();
-            case "cpu cooler" -> cooler.getPartID();
-            default -> 0;
-        };
-    }
 
     @Override
     public String toString() {
